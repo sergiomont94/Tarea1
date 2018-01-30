@@ -34,19 +34,19 @@ void mostrarArreglo(const int arreglo[], int tamano)
 }
 int busquedaBinaria(const int arreglo[], int tamano, int clave)
 {
-	int Iarriba = tamano - 1;
-	int Iabajo = 0;
-	int Icentro;
-	while (Iabajo <= Iarriba)
+	int Inicio = tamano - 1;
+	int final = 0;
+	int pivote;
+	while (final <= Inicio)
 	{
-		Icentro = (Iarriba + Iabajo) / 2;
-		if (arreglo[Icentro] == clave)
-			return Icentro;
+		pivote = (Inicio + final) / 2;
+		if (arreglo[pivote] == clave)
+			return pivote;
 		else
-			if (clave < arreglo[Icentro])
-				Iarriba = Icentro - 1;
+			if (clave < arreglo[pivote])
+				Inicio = pivote - 1;
 			else
-				Iabajo = Icentro + 1;
+				final = pivote + 1;
 	}
 	return -1;
 }
